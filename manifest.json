@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "RedNote Extension",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "worker/background.js"
+  },
+  "host_permissions": [
+    "ws://localhost:3001/*"
+  ],
+  "permissions": [
+    "tabs"
+  ],
+  "web_accessible_resources": [{
+    "resources": ["https://cdnjs.cloudflare.com/*"],
+    "matches": ["<all_urls>"]
+  }],
+  "content_scripts": [{
+    "matches": ["https://creator.xiaohongshu.com/publish/*"],
+    "js": ["content-script/content-creator.js"],
+    "run_at": "document_start"
+  }]
+}
