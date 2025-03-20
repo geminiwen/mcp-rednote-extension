@@ -1,7 +1,7 @@
 let ws = null;
 let retryDelay = 1000;
 
-const openCreatorPageIfNeed =  async (payload) => {
+const openCreatorPageIfNeed = async (payload) => {
   const url = "https://creator.xiaohongshu.com/publish/publish*";
   const tabs = await chrome.tabs.query({ url });
 
@@ -32,7 +32,7 @@ function connectWebSocket() {
     retryDelay = 1000; // 重置重试间隔
   };
 
-  ws.onmessage = (event) => {
+  ws.onmessage = async (event) => {
     console.log('收到消息:', event.data);
     const data = JSON.parse(event.data);
     // 在这里处理接收到的消息
@@ -51,8 +51,9 @@ function connectWebSocket() {
               ws.send(JSON.stringify({
                 "result": "not ok",
                 "success": false,
-                "message": "Create Notes Failed"
-            }))
+                "message": "Create Notes F"
+              }))
+            }
             break;
         }
     }
