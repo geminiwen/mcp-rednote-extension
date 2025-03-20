@@ -1,8 +1,8 @@
 let ws = null;
 let retryDelay = 1000;
 
-const openCreatorPageIfNeed =  async (payload) => {
-  const url = "https://creator.xiaohongshu.com/publish/publish?from=homepage&target=image";
+const openCreatorPageIfNeed =  await (payload) => {
+  const url = "https://creator.xiaohongshu.com/publish/publish*";
   const tabs = await chrome.tabs.query({ url });
 
   let tab;
@@ -15,6 +15,7 @@ const openCreatorPageIfNeed =  async (payload) => {
   }
 
   chrome.tabs.sendMessage(tab.id, payload);
+
 }
 
 
@@ -39,18 +40,22 @@ function connectWebSocket() {
     switch(type) {
         case "task": {
             const { payload } = data;
-            openCreatorPageIfNeed(payload);
+            try {
+              await openCreatorPageIfNeed(payload);
            
-            ws.send(JSON.stringify({
-                "result": "ok",
-                "success": true,
+              ws.send(JSON.stringify({
+                  "result": "ok",
+                  "success": true,
+              }))
+            } catch (e) {
+              ws.send(JSON.stringify({
+                "result": "not ok",
+                "success": false,
+                "message": "Create Notes Failed"
             }))
             break;
         }
     }
-
-    console.dir(data);
-
   };
 
   ws.onerror = (error) => {
