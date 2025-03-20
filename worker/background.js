@@ -1,7 +1,7 @@
 let ws = null;
 let retryDelay = 1000;
 
-const openCreatorPageIfNeed =  await (payload) => {
+const openCreatorPageIfNeed =  async (payload) => {
   const url = "https://creator.xiaohongshu.com/publish/publish*";
   const tabs = await chrome.tabs.query({ url });
 
