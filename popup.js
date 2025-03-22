@@ -12,9 +12,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (response.data) {
         connectBtn.textContent = '连接成功';
         connectBtn.disabled = true;
+        tokenInput.disabled = true;
     } else {
         connectBtn.textContent = '连接 MCP 服务器';
         connectBtn.disabled = false;
+        tokenInput.disabled = false;
     }
   }); 
 
@@ -26,9 +28,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (request.data.connected) {
                     connectBtn.textContent = '连接成功';
                     connectBtn.disabled = true;
+                    tokenInput.disabled = true;
                 } else {
                     connectBtn.textContent = '连接 MCP 服务器';
                     connectBtn.disabled = false;
+                    tokenInput.disabled = false;
                 }
                 break;
             }
