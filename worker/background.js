@@ -8,7 +8,7 @@ const openCreatorPageIfNeed = async (payload) => {
   let tab;
   if (tabs.length === 0) {
       // 如果没有匹配的标签页，则打开新页面
-    tab = await chrome.tabs.create({ url: url });
+    tab = await chrome.tabs.create({ url: "https://creator.xiaohongshu.com/publish/publish?from=tab_switch" });
   } else {
     tab = tabs[0];
     await chrome.tabs.update(tab.id, { active: true });
