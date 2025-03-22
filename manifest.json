@@ -9,10 +9,11 @@
     "service_worker": "worker/background.js"
   },
   "host_permissions": [
-    "ws://localhost:3001/*"
+    "wss://mcp.geminiwen.com/*"
   ],
   "permissions": [
-    "tabs"
+    "tabs",
+    "storage"
   ],
   "web_accessible_resources": [{
     "resources": ["https://cdnjs.cloudflare.com/*"],

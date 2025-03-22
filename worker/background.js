@@ -19,12 +19,13 @@ const openCreatorPageIfNeed = async (payload) => {
 }
 
 
-function connectWebSocket() {
+function connectWebSocket(token = "geminiwen") {
     if (ws) {
       console.log('WebSocket已经连接');
       return;
     }
-  ws = new WebSocket('ws://localhost:3001/client?token=123');
+    
+  ws = new WebSocket(`wss://mcp.geminiwen.com/client?token=${token}`);
 
   ws.onopen = () => {
     console.log('WebSocket连接成功');
@@ -107,7 +108,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
     const { action } = request;
     switch (action) {
         case "connect": {
-            connectWebSocket();
+            connectWebSocket(request.token);
             sendResponse({ "result": "ok", success: true});
             break;
         }

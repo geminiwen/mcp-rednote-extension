@@ -6,17 +6,24 @@
   <style>
     body {
       width: 300px;
-      height: 80px;
+      height: 180px;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 48px 0;
     }
   </style>
 </head>
 <body>
-  <button class="ant-btn ant-btn-primary" id="connectBtn">
-    连接 MCP 服务器
-  </button>
+  <div style="display: flex; flex-direction: column; gap: 16px;">
+    <div class="ant-form-item">
+      <label class="ant-form-item-label">Token</label>
+      <input type="text" class="ant-input" id="tokenInput" placeholder="请输入Token" />
+    </div>
+    <button class="ant-btn ant-btn-primary" id="connectBtn">
+      连接 MCP 服务器
+    </button>
+  </div>
   <script src="popup.js"></script>
 </body>
 </html>
