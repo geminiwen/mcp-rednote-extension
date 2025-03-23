@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "RedNote Extension",
+  "name": "小红书自动发布助手",
   "version": "1.0",
   "action": {
     "default_popup": "popup.html"
@@ -15,6 +15,9 @@
     "tabs",
     "storage"
   ],
+  "icons": {
+    "128": "icons/icon128.png"
+  },
   "web_accessible_resources": [{
     "resources": ["https://cdnjs.cloudflare.com/*"],
     "matches": ["<all_urls>"]
