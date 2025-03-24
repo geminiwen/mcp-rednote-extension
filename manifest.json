@@ -20,7 +20,7 @@
   },
   "web_accessible_resources": [{
     "resources": ["*"],
-    "matches": ["https://cdnjs.cloudflare.com/"]
+    "matches": ["https://cdnjs.cloudflare.com/*"]
   }],
   "content_scripts": [{
     "matches": ["https://creator.xiaohongshu.com/publish/*"],
