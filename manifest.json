@@ -19,8 +19,8 @@
     "128": "icons/icon128.png"
   },
   "web_accessible_resources": [{
-    "resources": ["https://cdnjs.cloudflare.com/*"],
-    "matches": ["<all_urls>"]
+    "resources": ["*"],
+    "matches": ["https://cdnjs.cloudflare.com/"]
   }],
   "content_scripts": [{
     "matches": ["https://creator.xiaohongshu.com/publish/*"],
